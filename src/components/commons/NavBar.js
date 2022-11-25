@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class PageWrapper extends Component {
+import navLogo from '../../images/navLogo.svg'
+
+class NavBar extends Component {
   //
   render() {
     //
@@ -9,11 +11,12 @@ class PageWrapper extends Component {
       <div>
         <nav
           className="navbar navbar-expand-lg navbar-dark fixed-top"
+          style={{ backgroundColor: "#27332F" }}
           id="mainNav"
         >
           <div className="container">
             <Link className="navbar-brand" to="/">
-              <img src="assets/img/navbar-logo.svg" alt="..." />
+              <img src={navLogo} alt="..." />
             </Link>
             <button
               className="navbar-toggler"
@@ -30,23 +33,23 @@ class PageWrapper extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/services">
-                    Services
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/portfolio">
-                    Portfolio
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link" to="/about">
                     About
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/services">
+                    Services
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/team">
                     Team
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/portfolio">
+                    Portfolio
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -66,4 +69,4 @@ class PageWrapper extends Component {
   }
 }
 
-export default PageWrapper;
+export default NavBar;

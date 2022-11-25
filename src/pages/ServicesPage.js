@@ -1,11 +1,42 @@
 import React, { Component } from "react";
+import Header from "../components/commons/Header";
+import Service from "../components/features/Service";
+import Footer from "../components/commons/Footer";
 
+// Dummy data based on template in service.js
+const services = [
+  {
+    title: "E-commerce",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.",
+    icon: "fa-shopping-cart",
+  },
+  {
+    title: "Responsive Design",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.",
+    icon: "fa-laptop",
+  },
+  {
+    title: "Web Security",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.",
+    icon: "fa-lock",
+  },
+];
+
+//
 class ServicesPage extends Component {
-    //
+  //
   render() {
     //
     return (
-      <div>
+      <div style={{ marginTop: "72px" }}>
+        <Header
+          image="https://dynamics.folio3.com/blog/wp-content/uploads/2022/07/Compare-Robotic-Process-Automation-vs.-Digital-Process-Automation-1280x720.png"
+          title="Standard Quality Without Compromise"
+          subTitle="Unique focus on Business succes"
+        />
         <section className="page-section" id="services">
           <div className="container">
             <div className="text-center">
@@ -14,46 +45,16 @@ class ServicesPage extends Component {
                 Lorem ipsum dolor sit amet consectetur.
               </h3>
             </div>
+
             <div className="row text-center">
-              <div className="col-md-4">
-                <span className="fa-stack fa-4x">
-                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i className="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 className="my-3">E-Commerce</h4>
-                <p className="text-muted">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Minima maxime quam architecto quo inventore harum ex magni,
-                  dicta impedit.
-                </p>
-              </div>
-              <div className="col-md-4">
-                <span className="fa-stack fa-4x">
-                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i className="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 className="my-3">Responsive Design</h4>
-                <p className="text-muted">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Minima maxime quam architecto quo inventore harum ex magni,
-                  dicta impedit.
-                </p>
-              </div>
-              <div className="col-md-4">
-                <span className="fa-stack fa-4x">
-                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                  <i className="fas fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 className="my-3">Web Security</h4>
-                <p className="text-muted">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Minima maxime quam architecto quo inventore harum ex magni,
-                  dicta impedit.
-                </p>
-              </div>
+              {services.map((item, i) => {
+                return <Service key={i} {...item} />;
+              })}
             </div>
           </div>
         </section>
+
+        <Footer />
       </div>
     );
   }

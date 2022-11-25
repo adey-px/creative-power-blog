@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-class FooterComp extends Component {
-    //
+class Footer extends Component {
+  //
   render() {
     //
     return (
@@ -53,4 +53,4 @@ class FooterComp extends Component {
   }
 }
 
-export default FooterComp
+export default Footer;

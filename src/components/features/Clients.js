@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class ClientComp extends Component {
+import microsoft from '../../images/clients/microsoft.svg'
+import google from "../../images/clients/google.svg";
+import facebook from "../../images/clients/facebook.svg";
+import ibm from "../../images/clients/microsoft.svg";
+
+class Clients extends Component {
   //
   render() {
     //
@@ -14,7 +19,7 @@ class ClientComp extends Component {
                 <Link to="#!">
                   <img
                     className="img-fluid img-brand d-block mx-auto"
-                    src="assets/img/logos/microsoft.svg"
+                    src={microsoft}
                     alt="..."
                     aria-label="Microsoft Logo"
                   />
@@ -24,7 +29,7 @@ class ClientComp extends Component {
                 <Link to="#!">
                   <img
                     className="img-fluid img-brand d-block mx-auto"
-                    src="assets/img/logos/google.svg"
+                    src={google}
                     alt="..."
                     aria-label="Google Logo"
                   />
@@ -34,7 +39,7 @@ class ClientComp extends Component {
                 <Link to="#!">
                   <img
                     className="img-fluid img-brand d-block mx-auto"
-                    src="assets/img/logos/facebook.svg"
+                    src={facebook}
                     alt="..."
                     aria-label="Facebook Logo"
                   />
@@ -44,7 +49,7 @@ class ClientComp extends Component {
                 <Link to="#!">
                   <img
                     className="img-fluid img-brand d-block mx-auto"
-                    src="assets/img/logos/ibm.svg"
+                    src={ibm}
                     alt="..."
                     aria-label="IBM Logo"
                   />
@@ -58,4 +63,4 @@ class ClientComp extends Component {
   }
 }
 
-export default ClientComp;
+export default Clients;

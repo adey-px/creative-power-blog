@@ -1,12 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Header from "../components/commons/Header";
+import Team from "../components/features/Team";
+import Footer from "../components/commons/Footer";
+
+import img1 from "../images/team/img1.jpg";
+import img2 from "../images/team/img2.jpg";
+import img3 from "../images/team/img3.jpg";
+
+// Dummy data
+const members = [
+  { name: "", title: "", image: img1 },
+  { name: "", title: "", image: img2 },
+  { name: "", title: "", image: img3 },
+];
 
 class TeamPage extends Component {
   //
   render() {
     //
     return (
-      <div>
+      <div style={{ marginTop: "40px" }}>
+        <Header
+          image="https://images.ctfassets.net/gg4ddi543f5b/2tMJ2QQXnxLatGtylEYut1/cdddf953c759f1083d41d7dc72c56d00/5-Positive-Conflict-tips-You-Can-Learn-From-High-Performance-Teams-5.jpg"
+          title="With a team of dedicated professionals"
+          subTitle="Together, Everyone Achieves More"
+        />
         <section className="page-section bg-light" id="team">
           <div className="container">
             <div className="text-center">
@@ -17,104 +35,13 @@ class TeamPage extends Component {
                 Lorem ipsum dolor sit amet consectetur.
               </h3>
             </div>
+
             <div className="row">
-              <div className="col-lg-4">
-                <div className="team-member">
-                  <img
-                    className="mx-auto rounded-circle"
-                    src="assets/img/team/1.jpg"
-                    alt="..."
-                  />
-                  <h4>Parveen Anand</h4>
-                  <p className="text-muted">Lead Designer</p>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Parveen Anand Twitter Profile"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </Link>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Parveen Anand Facebook Profile"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </Link>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Parveen Anand LinkedIn Profile"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="team-member">
-                  <img
-                    className="mx-auto rounded-circle"
-                    src="assets/img/team/2.jpg"
-                    alt="..."
-                  />
-                  <h4>Diana Petersen</h4>
-                  <p className="text-muted">Lead Marketer</p>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Diana Petersen Twitter Profile"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </Link>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Diana Petersen Facebook Profile"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </Link>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Diana Petersen LinkedIn Profile"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="team-member">
-                  <img
-                    className="mx-auto rounded-circle"
-                    src="assets/img/team/3.jpg"
-                    alt="..."
-                  />
-                  <h4>Larry Parker</h4>
-                  <p className="text-muted">Lead Developer</p>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Larry Parker Twitter Profile"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </Link>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Larry Parker Facebook Profile"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </Link>
-                  <Link
-                    className="btn btn-dark btn-social mx-2"
-                    to="#!"
-                    aria-label="Larry Parker LinkedIn Profile"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </Link>
-                </div>
-              </div>
+              {members.map((item, i) => {
+                return <Team key={i} {...item} />;
+              })}
             </div>
+
             <div className="row">
               <div className="col-lg-8 mx-auto text-center">
                 <p className="large text-muted">
@@ -126,6 +53,8 @@ class TeamPage extends Component {
             </div>
           </div>
         </section>
+
+        <Footer />
       </div>
     );
   }

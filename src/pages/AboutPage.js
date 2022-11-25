@@ -1,11 +1,19 @@
 import React, { Component } from "react";
+import Footer from "../components/commons/Footer";
+import Header from "../components/commons/Header";
 
 class AboutPage extends Component {
   //
   render() {
     //
     return (
-      <div>
+      <div style={{ marginTop: "72px" }}>
+        <Header
+          image="https://www.mutambalaj.com/wp-content/uploads/2021/05/About-Us-3.jpg"
+          title="Globally Distributed for Excellence"
+          subTitle="Equipped for Greater Heights"
+        />
+
         <section className="page-section" id="about">
           <div className="container">
             <div className="text-center">
@@ -121,6 +129,8 @@ class AboutPage extends Component {
             </ul>
           </div>
         </section>
+
+        <Footer />
       </div>
     );
   }

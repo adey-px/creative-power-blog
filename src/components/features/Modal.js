@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-class ModalComp extends Component {
-    //
+class Modal extends Component {
+  //
   render() {
     //
     return (
       <div>
+        {/* <!-- modal 1 --> */}
         <div
           className="portfolio-modal modal fade"
           id="portfolioModal1"
@@ -22,7 +23,6 @@ class ModalComp extends Component {
                 <div className="row justify-content-center">
                   <div className="col-lg-8">
                     <div className="modal-body">
-                      {/* <!-- Project details--> */}
                       <h2 className="text-uppercase">Project Name</h2>
                       <p className="item-intro text-muted">
                         Lorem ipsum dolor sit amet consectetur.
@@ -66,6 +66,7 @@ class ModalComp extends Component {
           </div>
         </div>
 
+        {/* <!-- modal 2 --> */}
         <div
           className="portfolio-modal modal fade"
           id="portfolioModal2"
@@ -126,6 +127,7 @@ class ModalComp extends Component {
           </div>
         </div>
 
+        {/* <!-- modal 3 --> */}
         <div
           className="portfolio-modal modal fade"
           id="portfolioModal3"
@@ -186,6 +188,7 @@ class ModalComp extends Component {
           </div>
         </div>
 
+        {/* <!-- modal 4 --> */}
         <div
           className="portfolio-modal modal fade"
           id="portfolioModal4"
@@ -246,6 +249,7 @@ class ModalComp extends Component {
           </div>
         </div>
 
+        {/* <!-- modal 5 --> */}
         <div
           className="portfolio-modal modal fade"
           id="portfolioModal5"
@@ -306,6 +310,7 @@ class ModalComp extends Component {
           </div>
         </div>
 
+        {/* <!-- modal 6 --> */}
         <div
           className="portfolio-modal modal fade"
           id="portfolioModal6"
@@ -322,7 +327,6 @@ class ModalComp extends Component {
                 <div className="row justify-content-center">
                   <div className="col-lg-8">
                     <div className="modal-body">
-                      {/* <!-- Project details--> */}
                       <h2 className="text-uppercase">Project Name</h2>
                       <p className="item-intro text-muted">
                         Lorem ipsum dolor sit amet consectetur.
@@ -370,4 +374,4 @@ class ModalComp extends Component {
   }
 }
 
-export default ModalComp
+export default Modal;

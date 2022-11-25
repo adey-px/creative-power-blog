@@ -1,26 +1,28 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Header from "../components/commons/Header";
+import homeTop from "../images/homeTop.jpg";
+import Clients from "../components/features/Clients";
 
 class HomePage extends Component {
   //
   render() {
     //
     return (
-      <div>
-        <header className="masthead">
-          <div className="container">
-            <div className="masthead-subheading">Welcome To Our Studio!</div>
-            <div className="masthead-heading text-uppercase">
-              It's Nice To Meet You
-            </div>
-            <Link
-              className="btn btn-primary btn-xl text-uppercase"
-              to="/services"
-            >
-              Tell Me More
-            </Link>
-          </div>
-        </header>
+      <div style={{ marginTop: "72px" }}>
+        <Header
+          image={homeTop}
+          title="Welcmome to Our Company"
+          subTitle="It's Nice to Meet You"
+          buttonText="Learn More"
+          showButton={true}
+          link="/services"
+        />
+
+        <div className="text-center" style={{ marginTop: "72px" }}>
+          <h1 className="section-heading text-uppercase">Our Clients</h1>
+        </div>
+
+        <Clients />
       </div>
     );
   }

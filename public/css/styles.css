@@ -11720,7 +11720,7 @@ header.masthead .masthead-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
+  background-image: url("./contactBg.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11742,7 +11742,7 @@ section#contact form#contactForm .form-group-textarea {
 }
 section#contact form#contactForm .form-group-textarea textarea {
   height: 100%;
-  min-height: 10rem;
+  min-height: 15.5rem;
 }
 section#contact form#contactForm p.help-block {
   margin: 0;

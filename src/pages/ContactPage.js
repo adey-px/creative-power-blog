@@ -1,13 +1,62 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../components/commons/Footer";
+import Form from "../components/features/Form";
+
+//
+const fields = {
+  //
+  sections: [
+    // inputs
+    [
+      {
+        elementName: "input",
+        type: "text",
+        id: "name",
+        placeholder: "Name *",
+      },
+      {
+        elementName: "input",
+        type: "email",
+        id: "email",
+        placeholder: "Email *",
+      },
+      {
+        elementName: "input",
+        type: "tel",
+        id: "phone",
+        placeholder: "Phone *",
+      },
+    ],
+    // textarea
+    [
+      {
+        elementName: "textarea",
+        type: "textarea",
+        id: "message",
+        placeholder: "Message *",
+      },
+    ],
+  ],
+};
 
 class ContactPage extends Component {
   //
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    };
+  }
+
   render() {
     //
     return (
-      <div>
-        {" "}
+      <div style={{ marginTop: "72px" }}>
         <section className="page-section" id="contact">
           <div className="container">
             <div className="text-center">
@@ -16,89 +65,31 @@ class ContactPage extends Component {
                 Lorem ipsum dolor sit amet consectetur.
               </h3>
             </div>
-            {/* <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!--> */}
+
+            {/* Get API token https://startbootstrap.com/solution/contact-forms */}
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
               <div className="row align-items-stretch mb-5">
-                <div className="col-md-6">
-                  <div className="form-group">
-                    {/* <!-- Name input--> */}
-                    <input
-                      className="form-control"
-                      id="name"
-                      type="text"
-                      placeholder="Your Name *"
-                      data-sb-validations="required"
-                    />
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="name:required"
-                    >
-                      A name is required.
+                {fields.sections.map((each, index) => {
+                  return (
+                    <div className="col-md-6" key={index}>
+                      {each.map((item, i) => {
+                        return (
+                          <Form
+                            {...item}
+                            key={i}
+                            value={this.state[item.id]}
+                            onChange={(e) =>
+                              this.setState({ [item.id]: e.target.value })
+                            }
+                          />
+                        );
+                      })}
                     </div>
-                  </div>
-                  <div className="form-group">
-                    {/* <!-- Email address input--> */}
-                    <input
-                      className="form-control"
-                      id="email"
-                      type="email"
-                      placeholder="Your Email *"
-                      data-sb-validations="required,email"
-                    />
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="email:required"
-                    >
-                      An email is required.
-                    </div>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="email:email"
-                    >
-                      Email is not valid.
-                    </div>
-                  </div>
-                  <div className="form-group mb-md-0">
-                    {/* <!-- Phone number input--> */}
-                    <input
-                      className="form-control"
-                      id="phone"
-                      type="tel"
-                      placeholder="Your Phone *"
-                      data-sb-validations="required"
-                    />
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="phone:required"
-                    >
-                      A phone number is required.
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="form-group form-group-textarea mb-md-0">
-                    <textarea
-                      className="form-control"
-                      id="message"
-                      placeholder="Your Message *"
-                      data-sb-validations="required"
-                    ></textarea>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="message:required"
-                    >
-                      A message is required.
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
-              {/* what your users will see when the form has submitted */}
+
+              {/* Form submit success message */}
               <div className="d-none" id="submitSuccessMessage">
                 <div className="text-center text-white mb-3">
                   <div className="fw-bolder">Form submission successful!</div>
@@ -109,18 +100,20 @@ class ContactPage extends Component {
                   </Link>
                 </div>
               </div>
-              {/* form submit error message */}
+
+              {/* Form submit error message */}
               <div className="d-none" id="submitErrorMessage">
                 <div className="text-center text-danger mb-3">
                   Error sending message!
                 </div>
               </div>
-              {/* <!-- Submit Button--> */}
+
+              {/* Submit Button*/}
               <div className="text-center">
                 <button
-                  className="btn btn-primary btn-xl text-uppercase disabled"
-                  id="submitButton"
                   type="submit"
+                  id="submitButton"
+                  className="btn btn-primary btn-xl text-uppercase"
                 >
                   Send Message
                 </button>
@@ -128,6 +121,8 @@ class ContactPage extends Component {
             </form>
           </div>
         </section>
+
+        <Footer />
       </div>
     );
   }
