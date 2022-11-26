@@ -8,7 +8,7 @@ class HomePage extends Component {
   render() {
     //
     return (
-      <div style={{ marginTop: "72px" }}>
+      <div style={{ marginTop: "72px" }}>``
         <Header
           image={homeTop}
           title="Welcmome to Our Company"
