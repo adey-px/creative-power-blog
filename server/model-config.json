@@ -34,5 +34,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Profile": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Blogger": {
+    "dataSource": "db",
+    "public": true
   }
 }
