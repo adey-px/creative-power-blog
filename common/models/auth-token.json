@@ -1,0 +1,19 @@
+{
+  "name": "AuthToken",
+  "base": "AccessToken",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "blogger": {
+      "type": "belongsTo",
+      "model": "Blogger",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

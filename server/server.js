@@ -10,9 +10,9 @@ const boot = require("loopback-boot");
 
 const app = (module.exports = loopback());
 
-app.start = function () {
+app.start = function() {
   // start the web server
-  return app.listen(function () {
+  return app.listen(function() {
     app.emit("started");
     const baseUrl = app.get("url").replace(/\/$/, "");
     console.log("Web server listening at: %s", baseUrl);
@@ -25,7 +25,7 @@ app.start = function () {
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function (err) {
+boot(app, __dirname, function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
@@ -34,13 +34,25 @@ boot(app, __dirname, function (err) {
 
 /* ---- Developer code starts here ---- */
 // Check all models accessible in model-config.json
-// console.log(Object.keys(app.models));
+console.log(Object.keys(app.models));
 
-// Create new user into models
+// At build, try find user, auto create one if none
+app.models.Blogger.find((err, bloggers) => {
+  if (bloggers.length === 0) {
+    const newUser = {
+      email: 'test@gmail.com',
+      password: 'password',
+      username: 'adey',
+    };
+    app.models.Blogger.create(newUser, (err, newUser) => {
+      console.log('New user is created', err, newUser);
+    });
+  }
+});
+
+// In explorer, manually create one and their profile
 app.models.Blogger.afterRemote("create", (xyz, newUser, next) => {
   console.log("New user is created", newUser);
-
-  /* create profile along */
   app.models.Profile.create(
     {
       firstName: newUser.username,
@@ -49,11 +61,16 @@ app.models.Blogger.afterRemote("create", (xyz, newUser, next) => {
     },
     (err, newProfile) => {
       if (!err && newProfile) {
-        console.log('New profile is created', newProfile);
+        console.log("New profile is created", newProfile);
       } else {
-        console.log('Failed to create user profile', err);
+        console.log("Failed to create user profile", err);
       }
       next();
     }
   );
 });
+
+// //
+// app.middleware('auth', loopback.token({
+//   model: app.models.AuthToken,
+// }));

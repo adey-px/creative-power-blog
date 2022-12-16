@@ -14,7 +14,21 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "profile": {
+      "type": "hasOne",
+      "model": "Profile",
+      "foreignKey": "userId"
+    },
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AuthToken",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }

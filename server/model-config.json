@@ -14,9 +14,6 @@
     ]
   },
   "User": {
-    "dataSource": "db"
-  },
-  "AccessToken": {
     "dataSource": "db",
     "public": false
   },
@@ -40,6 +37,10 @@
     "public": true
   },
   "Blogger": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AuthToken": {
     "dataSource": "db",
     "public": true
   }
