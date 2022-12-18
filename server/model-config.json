@@ -14,34 +14,34 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": false
   },
   "Profile": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": true
   },
   "Blogger": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": true
   },
   "AuthToken": {
-    "dataSource": "db",
+    "dataSource": "customDS",
     "public": true
   }
 }

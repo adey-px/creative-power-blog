@@ -23,10 +23,7 @@
     "accessTokens": {
       "type": "hasMany",
       "model": "AuthToken",
-      "foreignKey": "userId",
-      "options": {
-        "disableInclude": true
-      }
+      "foreignKey": "userId"
     }
   },
   "acls": [],

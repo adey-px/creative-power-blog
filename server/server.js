@@ -50,7 +50,7 @@ app.models.Blogger.find((err, bloggers) => {
   }
 });
 
-// In explorer, manually create one and their profile
+// In explorer, manually create user and their profile
 app.models.Blogger.afterRemote("create", (xyz, newUser, next) => {
   console.log("New user is created", newUser);
   app.models.Profile.create(
