@@ -13,10 +13,6 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "customDS",
-    "public": false
-  },
   "ACL": {
     "dataSource": "customDS",
     "public": false
@@ -41,6 +37,10 @@
     "public": true
   },
   "AuthToken": {
+    "dataSource": "customDS",
+    "public": true
+  },
+  "BlogPost": {
     "dataSource": "customDS",
     "public": true
   }

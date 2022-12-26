@@ -3,22 +3,22 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-"use strict";
+'use strict';
 
-const loopback = require("loopback");
-const boot = require("loopback-boot");
+const loopback = require('loopback');
+const boot = require('loopback-boot');
 
 const app = (module.exports = loopback());
 
 app.start = function() {
   // start the web server
   return app.listen(function() {
-    app.emit("started");
-    const baseUrl = app.get("url").replace(/\/$/, "");
-    console.log("Web server listening at: %s", baseUrl);
-    if (app.get("loopback-component-explorer")) {
-      const explorerPath = app.get("loopback-component-explorer").mountPath;
-      console.log("Browse your REST API at %s%s", baseUrl, explorerPath);
+    app.emit('started');
+    const baseUrl = app.get('url').replace(/\/$/, '');
+    console.log('Web server listening at: %s', baseUrl);
+    if (app.get('loopback-component-explorer')) {
+      const explorerPath = app.get('loopback-component-explorer').mountPath;
+      console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
   });
 };
@@ -34,7 +34,7 @@ boot(app, __dirname, function(err) {
 
 /* ---- Developer code starts here ---- */
 // Check all models accessible in model-config.json
-console.log(Object.keys(app.models));
+// console.log(Object.keys(app.models));
 
 // At build, try find user, auto create one if none
 app.models.Blogger.find((err, bloggers) => {
@@ -51,8 +51,8 @@ app.models.Blogger.find((err, bloggers) => {
 });
 
 // In explorer, manually create user and their profile
-app.models.Blogger.afterRemote("create", (xyz, newUser, next) => {
-  console.log("New user is created", newUser);
+app.models.Blogger.afterRemote('create', (xyz, newUser, next) => {
+  console.log('New user is created', newUser);
   app.models.Profile.create(
     {
       firstName: newUser.username,
@@ -61,9 +61,9 @@ app.models.Blogger.afterRemote("create", (xyz, newUser, next) => {
     },
     (err, newProfile) => {
       if (!err && newProfile) {
-        console.log("New profile is created", newProfile);
+        console.log('New profile is created', newProfile);
       } else {
-        console.log("Failed to create user profile", err);
+        console.log('Failed to create user profile', err);
       }
       next();
     }

@@ -25,6 +25,11 @@
       "type": "belongsTo",
       "model": "Blogger",
       "foreignKey": "userId"
+    },
+    "blogPost": {
+      "type": "hasMany",
+      "model": "BlogPost",
+      "foreignKey": ""
     }
   },
   "acls": [],
