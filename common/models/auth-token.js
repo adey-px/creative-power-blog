@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Customtoken) {
+module.exports = function(Authtoken) {
 
 };

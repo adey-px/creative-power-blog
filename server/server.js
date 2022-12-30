@@ -1,6 +1,6 @@
-// Copyright IBM Corp. 2016,2019. All Rights Reserved.
+// Copyright IBM Corp. 2016,2019. All Rights Reserved
 // Node module: loopback-workspace
-// This file is licensed under the MIT License.
+// This file is licensed under the MIT License
 // License text available at https://opensource.org/licenses/MIT
 
 'use strict';
@@ -23,22 +23,48 @@ app.start = function() {
   });
 };
 
-// Bootstrap the application, configure models, datasources and middleware.
-// Sub-apps like REST API are mounted via boot scripts.
+// Bootstrap the application, configure models, datasources and middleware
+// Sub-apps like REST API are mounted via boot scripts
 boot(app, __dirname, function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
-  if (require.main === module) app.start();
+  if (require.main === module)
+    app.start();
 });
 
-/* ---- Developer code starts here ---- */
-// Check all models accessible in model-config.json
+/* ---------------- Developer code starts here ---------------------- */
+// To check all models accessible in model-config.json
 // console.log(Object.keys(app.models));
 
-// At build, try find user, auto create one if none
-app.models.Blogger.find((err, bloggers) => {
-  if (bloggers.length === 0) {
+// For test in explorer, create user and their profile
+app.models.Blogger.afterRemote('create', (err, newUser, next) => {
+  console.log('New user is created', newUser);
+  app.models.Profile.create(
+    {
+      firstName: newUser.username,
+      createdAt: new Date(),
+      userId: newUser.id,
+    },
+    (erros, newProfile) => {
+      if (!erros && newProfile) {
+        console.log('New profile is created', newProfile);
+      } else {
+        console.log('Failed to create user profile', erros);
+      }
+      next();
+    }
+  );
+});
+
+// Config for custom access token to login
+app.middleware('auth', loopback.token({
+  model: app.models.AuthToken,
+}));
+
+// At build, find user, auto create one if none
+app.models.Blogger.find((err, ppl) => {
+  if (ppl.length === 0) {
     const newUser = {
       email: 'test@gmail.com',
       password: 'password',
@@ -50,27 +76,36 @@ app.models.Blogger.find((err, bloggers) => {
   }
 });
 
-// In explorer, manually create user and their profile
-app.models.Blogger.afterRemote('create', (xyz, newUser, next) => {
-  console.log('New user is created', newUser);
-  app.models.Profile.create(
-    {
-      firstName: newUser.username,
-      createdAt: new Date(),
-      userId: newUser.id,
-    },
-    (err, newProfile) => {
-      if (!err && newProfile) {
-        console.log('New profile is created', newProfile);
-      } else {
-        console.log('Failed to create user profile', err);
-      }
-      next();
+// Role based mapping
+// At build, find admin, auto create one if none
+app.models.Role.find({where: {name: 'admin'}}, (err, role) => {
+  if (!err && role) {
+    console.log('No Error!! Role found is...', role);
+    if (role.length === 0) {
+      app.models.Role.create({
+        name: 'admin',
+      },
+      (error, newAdmin) => {
+        if (!error && newAdmin) {
+          app.models.Blogger.findOne((erros, appl) => {
+            if (!erros && appl) {
+              newAdmin.principals.create({
+                principalType: app.models.RoleMapping.USER,
+                principalId: appl.id,
+              },
+              (erroz, biggie) => {
+                console.log('New Admin is created', erroz, biggie);
+              });
+            }
+          });
+        }
+      });
     }
-  );
+  }
 });
 
-// //
-// app.middleware('auth', loopback.token({
-//   model: app.models.AuthToken,
-// }));
+/*
+  Next create custom ACL to apply access control to BlogPost model
+  ACL to deny everyone, another ACL to allow admin only
+*/
+

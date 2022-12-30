@@ -20,10 +20,13 @@
       "model": "Profile",
       "foreignKey": "userId"
     },
-    "authToken": {
+    "accessTokens": {
       "type": "hasMany",
       "model": "AuthToken",
-      "foreignKey": "userId"
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
     },
     "blogPost": {
       "type": "hasMany",
