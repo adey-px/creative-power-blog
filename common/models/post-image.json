@@ -1,18 +1,12 @@
 {
-  "name": "BlogPost",
+  "name": "PostImage",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "title": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "string"
-    },
-    "content": {
+    "url": {
       "type": "string"
     },
     "createdAt": {
@@ -21,25 +15,15 @@
   },
   "validations": [],
   "relations": {
+    "blogPost": {
+      "type": "belongsTo",
+      "model": "BlogPost",
+      "foreignKey": "blogpostId"
+    },
     "blogger": {
       "type": "belongsTo",
       "model": "Blogger",
       "foreignKey": "userId"
-    },
-    "profile": {
-      "type": "belongsTo",
-      "model": "Profile",
-      "foreignKey": "profileId"
-    },
-    "category": {
-      "type": "belongsTo",
-      "model": "Category",
-      "foreignKey": "categoryId"
-    },
-    "postImage": {
-      "type": "hasMany",
-      "model": "PostImage",
-      "foreignKey": "postimageId"
     }
   },
   "acls": [

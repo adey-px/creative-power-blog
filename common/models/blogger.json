@@ -31,7 +31,12 @@
     "blogPost": {
       "type": "hasMany",
       "model": "BlogPost",
-      "foreignKey": ""
+      "foreignKey": "blogpostId"
+    },
+    "postImage": {
+      "type": "hasMany",
+      "model": "PostImage",
+      "foreignKey": "postimageId"
     }
   },
   "acls": [],

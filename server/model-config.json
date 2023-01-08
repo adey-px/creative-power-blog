@@ -14,38 +14,46 @@
     ]
   },
   "ACL": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": false
   },
   "Profile": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": true
   },
   "Blogger": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": true
   },
   "AuthToken": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": true
   },
   "BlogPost": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
     "public": true
   },
   "Category": {
-    "dataSource": "customDS",
+    "dataSource": "customDB",
+    "public": true
+  },
+  "PostImage": {
+    "dataSource": "customDB",
+    "public": true
+  },
+  "ImageFile": {
+    "dataSource": "imgStore",
     "public": true
   }
 }
