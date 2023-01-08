@@ -43,5 +43,9 @@
   "BlogPost": {
     "dataSource": "customDS",
     "public": true
+  },
+  "Category": {
+    "dataSource": "customDS",
+    "public": true
   }
 }

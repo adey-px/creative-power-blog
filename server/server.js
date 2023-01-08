@@ -77,35 +77,56 @@ app.models.Blogger.find((err, ppl) => {
 });
 
 // Role based mapping
-// At build, find admin, auto create one if none
-app.models.Role.find({where: {name: 'admin'}}, (err, role) => {
-  if (!err && role) {
-    console.log('No Error!! Role found is...', role);
-    if (role.length === 0) {
-      app.models.Role.create({
-        name: 'admin',
-      },
-      (error, newAdmin) => {
-        if (!error && newAdmin) {
-          app.models.Blogger.findOne((erros, appl) => {
-            if (!erros && appl) {
-              newAdmin.principals.create({
-                principalType: app.models.RoleMapping.USER,
-                principalId: appl.id,
-              },
-              (erroz, biggie) => {
-                console.log('New Admin is created', erroz, biggie);
-              });
-            }
-          });
+// At build, find admin in role, auto create one if none
+app.models.Role.find({where: {name: 'admin'}}, (err, sub) => {
+  if (!err && sub) {
+    console.log('No Error!! Role found is...', sub);
+    if (sub.length === 0) {
+      app.models.Role.create(
+        {
+          name: 'admin',
+        },
+        (error, newAdmin) => {
+          if (!error && newAdmin) {
+            app.models.Blogger.findOne((erros, pers) => {
+              if (!erros && pers) {
+                newAdmin.principals.create(
+                  {
+                    principalType: app.models.RoleMapping.USER,
+                    principalId: pers.id,
+                  },
+                  (erroz, biggie) => {
+                    console.log('New Admin is created', erroz, biggie);
+                  }
+                );
+              }
+            });
+          }
         }
-      });
+      );
     }
   }
 });
 
 /*
   Next create custom ACL to apply access control to BlogPost model
-  ACL to deny everyone, another ACL to allow admin only
+  ACL to deny everyone, another ACL to allow admin only...etc
 */
 
+// Find editor in role, auto create one if none
+app.models.Role.find({where: {name: 'editor'}}, (err, sub) => {
+  if (!err && sub) {
+    if (sub.length === 0) {
+      app.models.Role.create({
+        name: 'editor',
+      }, (erro, subs) => {
+        console.log(erro, subs);
+      });
+    }
+  }
+});
+
+/*
+  Next create Category model, link relations in BlogPost
+  to Category model. Also configure ACL for both models
+*/
