@@ -7,7 +7,7 @@ class AboutPage extends Component {
   render() {
     //
     return (
-      <div style={{ marginTop: "72px" }}>
+      <div style={{ marginTop: "120px" }}>
         <Header
           image="https://www.mutambalaj.com/wp-content/uploads/2021/05/About-Us-3.jpg"
           title="Globally Distributed for Excellence"

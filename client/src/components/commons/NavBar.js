@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import navLogo from '../../images/navLogo.svg'
+import navLogo from '../../assets/img/navLogo.svg'
 
 class NavBar extends Component {
   //

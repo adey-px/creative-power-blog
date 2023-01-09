@@ -10,30 +10,30 @@ const fields = {
     // inputs
     [
       {
-        elementName: "input",
-        type: "text",
         id: "name",
+        type: "text",
+        elementName: "input",
         placeholder: "Name *",
       },
       {
-        elementName: "input",
-        type: "email",
         id: "email",
+        type: "email",
+        elementName: "input",
         placeholder: "Email *",
       },
       {
-        elementName: "input",
-        type: "tel",
         id: "phone",
+        type: "tel",
+        elementName: "input",
         placeholder: "Phone *",
       },
     ],
     // textarea
     [
       {
-        elementName: "textarea",
-        type: "textarea",
         id: "message",
+        type: "textarea",
+        elementName: "textarea",
         placeholder: "Message *",
       },
     ],
@@ -56,11 +56,13 @@ class ContactPage extends Component {
   render() {
     //
     return (
-      <div style={{ marginTop: "72px" }}>
+      <div style={{ marginTop: "120px" }}>
         <section className="page-section" id="contact">
           <div className="container">
             <div className="text-center">
-              <h2 className="section-heading text-uppercase">Contact Us</h2>
+              <h2 className="section-heading text-uppercase contact">
+                Contact Us
+              </h2>
               <h3 className="section-subheading text-muted">
                 Lorem ipsum dolor sit amet consectetur.
               </h3>

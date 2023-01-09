@@ -31,7 +31,7 @@ class ServicesPage extends Component {
   render() {
     //
     return (
-      <div style={{ marginTop: "72px" }}>
+      <div className="page">
         <Header
           image="https://dynamics.folio3.com/blog/wp-content/uploads/2022/07/Compare-Robotic-Process-Automation-vs.-Digital-Process-Automation-1280x720.png"
           title="Standard Quality Without Compromise"

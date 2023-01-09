@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import microsoft from '../../images/clients/microsoft.svg'
-import google from "../../images/clients/google.svg";
-import facebook from "../../images/clients/facebook.svg";
-import ibm from "../../images/clients/microsoft.svg";
+import microsoft from "../../assets/img/clients/microsoft.svg";
+import google from "../../assets/img/clients/google.svg";
+import facebook from "../../assets/img/clients/facebook.svg";
+import ibm from "../../assets/img/clients/microsoft.svg";
 
 class Clients extends Component {
   //

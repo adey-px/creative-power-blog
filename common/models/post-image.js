@@ -17,10 +17,7 @@ module.exports = function(PostImage) {
       fileSys.mkdirSync("./server/storage/" + ctx.req.params.container);
     }
     //
-    PostImage.app.models.ImageFile.upload(
-      ctx.req,
-      ctx.result,
-      options,
+    PostImage.app.models.ImageFile.upload(ctx.req, ctx.result, options,
       (err, file) => {
         if (err) {
           callBk(err);
@@ -29,11 +26,7 @@ module.exports = function(PostImage) {
 
           sharp("./server/storage/" + ctx.req.params.container + "/" + fileInfo.name)
             .resize(100)
-            .toFile(
-              "./server/storage/" +
-                ctx.req.params.container +
-                "/100-" +
-                fileInfo.name,
+            .toFile("./server/storage/" + ctx.req.params.container + "/100-" + fileInfo.name,
               (err) => {
                 if (!err) {
                   PostImage.create(

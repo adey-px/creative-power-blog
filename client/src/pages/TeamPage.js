@@ -3,9 +3,9 @@ import Header from "../components/commons/Header";
 import Team from "../components/features/Team";
 import Footer from "../components/commons/Footer";
 
-import img1 from "../images/team/img1.jpg";
-import img2 from "../images/team/img2.jpg";
-import img3 from "../images/team/img3.jpg";
+import img1 from "../assets/img/team/img1.jpg";
+import img2 from "../assets/img/team/img2.jpg";
+import img3 from "../assets/img/team/img3.jpg";
 
 // Dummy data
 const members = [
@@ -19,7 +19,7 @@ class TeamPage extends Component {
   render() {
     //
     return (
-      <div style={{ marginTop: "40px" }}>
+      <div className="page">
         <Header
           image="https://images.ctfassets.net/gg4ddi543f5b/2tMJ2QQXnxLatGtylEYut1/cdddf953c759f1083d41d7dc72c56d00/5-Positive-Conflict-tips-You-Can-Learn-From-High-Performance-Teams-5.jpg"
           title="With a team of dedicated professionals"

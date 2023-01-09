@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/commons/Header";
-import homeTop from "../images/homeTop.jpg";
+import homeTop from "../assets/img/homeTop.jpg";
 import Clients from "../components/features/Clients";
 
 class HomePage extends Component {
@@ -8,7 +8,7 @@ class HomePage extends Component {
   render() {
     //
     return (
-      <div style={{ marginTop: "72px" }}>``
+      <div className="page">
         <Header
           image={homeTop}
           title="Welcmome to Our Company"
@@ -17,11 +17,9 @@ class HomePage extends Component {
           showButton={true}
           link="/services"
         />
-
         <div className="text-center" style={{ marginTop: "72px" }}>
           <h1 className="section-heading text-uppercase">Our Clients</h1>
         </div>
-
         <Clients />
       </div>
     );
